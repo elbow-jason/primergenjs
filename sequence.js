@@ -10,6 +10,25 @@ var genRandomSeq = function(seqLength) {
 };
 
 
+//returns the compliment of the param 'sequence' as sequence is presented. i.e. 
+//	sequence = "ATTTTAGCGATCCC"
+//	returns  = "TAAAATCGCTAGGG"
+
+var genComplement = function(sequence) {
+	var compliment = "";
+	var decoder = { 
+		"T": "A",
+		"A": "T",
+		"C": "G",
+		"G": "C"
+	};
+	for (i = 0; i < sequence.length; i++) {
+		compliment += decoder[sequence[i]];
+	}
+	return compliment;
+};
+
+
 
 
 

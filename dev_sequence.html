@@ -1,22 +1,49 @@
 <html>
 <head>
-
-
 	<script type="text/javascript" src="./sequence.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="http://davidbau.com/encode/seedrandom.min.js"></script>
-	
+	<style>
+		p {font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif; font-size: 28}
+		div {font-family: font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;}
+		table {font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif; padding: 15px; }
+		td{padding: 6px;}
+		[info=seq] {font-family: "Courier New", Courier, monospace; font-size: 14px; font-weight: bold;}
+	</style>
+
+
+
 </head>
 <body>
+
+	
 	<p> From ./sequence.js </p>
-	<div> Here is the pseudorandom (PR) sequence: 
-		<script type="text/javascript"> document.write(genRandomSeq(10)); </script>
+	<div> Here is the pseudorandom (PR) sequence:
+		<span info="seq"> 
+		<script type="text/javascript"> document.write(genRandomSeq(128)); </script>
+		</span>
 	</div>
 	<div> 
 		The PR Seq is 
-		<script type="text/javascript"> document.write(genRandomSeq(10).length); </script>
+		<span info="seq">
+		<script type="text/javascript"> document.write(genRandomSeq(128).length);/*I realize calling the func twice is a bad thing*/ </script>
+		</span>
 		bases long. 
 	</div>
+	<TABLE>
+		<TR>
+			<TD>Sequence</TD>
+			<TD info="seq">ATTTTAGCGATCCC</TD>
+
+		</TR>
+		<TR>
+			<TD>Expected</TD>
+			<TD info="seq">TAAAATCGCTAGGG</TD>
+		</TR>
+		<TR>
+			<TD>Generated</TD>
+			<TD info="seq"><script type="text/javascript"> document.write(genComplement("ATTTTAGCGATCCC")); </script></TD>
+		</TR>
+	</TABLE>
 </body>
 </html>
-
