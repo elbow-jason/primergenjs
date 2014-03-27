@@ -25,13 +25,13 @@
 	<p> From ./sequence.js </p>
 	<div> Here is the pseudorandom (PR) sequence:
 		<span info="seq"> 
-			<script type="text/javascript"> document.write(genRandomSeq(128)); </script>
+			<script type="text/javascript"> document.write(sequence.actual); </script>
 		</span>
 	</div>
 	<div> 
 		The PR Seq is 
 		<span info="seq">
-			<script type="text/javascript"> document.write(genRandomSeq(128).length);/*I realize calling the func twice is a bad thing*/ </script>
+			<script type="text/javascript"> document.write(sequence.actual.length); </script>
 		</span>
 		bases long. 
 	</div>
@@ -47,8 +47,20 @@
 		</TR>
 		<TR>
 			<TD>Generated</TD>
-			<TD info="seq"><script type="text/javascript"> document.write(genComplement("ATTTTAGCGATCCC")); </script></TD>
+			<TD info="seq"><script type="text/javascript"> document.write(sequence.genComplement("ATTTTAGCGATCCC")); </script></TD>
 		</TR>
 	</TABLE>
+	<div> Here come the primers...</div>
+	<div>	Forward:
+		<span info="seq"> 
+			<script type="text/javascript"> document.write(sequence.forwardPrimer); </script>
+		</span>
+	</div>
+	<div>	Reverse:
+		<span info="seq"> 
+			<script type="text/javascript"> document.write(sequence.reversePrimer); </script>
+		</span>
+	</div>
+
 </body>
 </html>

@@ -1,0 +1,2 @@
+add options:
+	- Long range PCR option for looonng sequences (longer than 3000bp)
