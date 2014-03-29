@@ -75,11 +75,32 @@ sequence.seqIntegrityCheck = function (sequence) {
       //given "GATC" => 0.5
       //given "CCCC" => 1.0
       //given "AATC" => 0.25
-sequence.calcGCContent = function() {
-  return (sequence.actual.split("G").length + sequence.actual.split("C").length - 2) / sequence.actual.length;
+sequence.calcGCContent = function(seq) {
+  return (seq.split("G").length + seq.split("C").length - 2) / seq.length;
     };
 
-sequence.calcMeltingTemp = function()
+//Calculate the melting temp of oligos (read: primers) in Celcius
+
+""" 
+R is the ideal gas constant and is equal to 1.987 cal / (K * mole).
+the difference between degrees Kelvin and Celsius is 273.15 degrees.
+
+"""
+sequence.calcMeltingTempCelsius = function() {
+	var R = 1.987;
+
+	meltingTemp = 	enthalpy / (entropy + idealGasConst * log(concentration_Primers)) -273.15
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -90,7 +111,8 @@ seqLength = 64;
 sequence.actual = sequence.genRandomSeq(seqLength);
 sequence.forwardPrimer = sequence.genPrimer(0, 18, true);
 sequence.reversePrimer = sequence.genPrimer(0, 21, false);
-sequence.gcContent = sequence.calcGCContent();
+sequence.gcContent = sequence.calcGCContent(sequence.actual);
+
 
 
 
