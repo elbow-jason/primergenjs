@@ -75,9 +75,13 @@ sequence.seqIntegrityCheck = function (sequence) {
       //given "GATC" => 0.5
       //given "CCCC" => 1.0
       //given "AATC" => 0.25
-sequence.calcGCContent = function(seq) {
+sequence.calcGCContent = function() {
   return (sequence.actual.split("G").length + sequence.actual.split("C").length - 2) / sequence.actual.length;
     };
+
+sequence.calcMeltingTemp = function()
+
+
 
 
 
@@ -87,3 +91,6 @@ sequence.actual = sequence.genRandomSeq(seqLength);
 sequence.forwardPrimer = sequence.genPrimer(0, 18, true);
 sequence.reversePrimer = sequence.genPrimer(0, 21, false);
 sequence.gcContent = sequence.calcGCContent();
+
+
+
