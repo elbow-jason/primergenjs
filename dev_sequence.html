@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>primergenjs - primer design made easy</title>
-	<link rel="shortcut icon" href="./primergenjs.ico" type="image/ico">
+	<link rel="shortcut icon" href="./primergen.ico" type="image/ico">
 	<script type="text/javascript" src="./primergen.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="http://davidbau.com/encode/seedrandom.min.js"></script>
@@ -15,91 +15,165 @@
 		td{padding: 6px;}
 		[info=seq] {font-family: "Courier New", Courier, monospace; font-size: 14px; font-weight: bold;}
 	</style>
-
-
-
 </head>
 <body>
 
 	
-	<p> From ./primergen.js </p>
-	<div> Here is the pseudorandom (PR) primergen:
+	<p><big> From ./primergen.js </big> </p>
+	<h1> Candidate Sequence</h1>
+	<div> Here is the pseudorandom (PR) sequence:
 		<span info="seq"> 
-			<script type="text/javascript"> document.write(primergen.sequence); </script>
+			<script type="text/javascript"> document.write(seqs.csaSeq.sequence); </script>
+		</span>
+	</div>
+		<div> integrity of the sequence:
+		<span info="seq"> 
+			<script type="text/javascript"> document.write(seqs.csaSeq.integrity); </script>
 		</span>
 	</div>
 	<div> 
 		The PR Seq is 
 		<span info="seq">
-			<script type="text/javascript"> document.write(primergen.sequence.length); </script>
+			<script type="text/javascript"> document.write(seqs.csaSeq.seqLength); </script>
 		</span>
 		bases long. 
 	</div>
-	<div> GC content of primergen:
+	<div> GC content of sequence:
 		<span info="seq"> 
-			<script type="text/javascript"> document.write(primergen.gcContent); </script>
+			<script type="text/javascript"> document.write(seqs.csaSeq.gcContent); </script>
 		</span>
 	</div>
-	<div> integrity of the primergen:
-		<span info="seq"> 
-			<script type="text/javascript"> document.write(primergen.seqIntegrityCheck(primergen.sequence)); </script>
-		</span>
-	</div>
-
-
-
-
-
-	<TABLE>
-		<TR>
-			<TD>primergen</TD>
-			<TD info="seq">ATTTTAGCGATCCC</TD>
-
-		</TR>
-		<TR>
-			<TD>Expected</TD>
-			<TD info="seq">TAAAATCGCTAGGG</TD>
-		</TR>
-		<TR>
-			<TD>Generated</TD>
-			<TD info="seq"><script type="text/javascript"> document.write(primergen.genComplement("ATTTTAGCGATCCC")); </script></TD>
-		</TR>
-	</TABLE>
-	<div> Here come the primers...</div>
-	<div>	Forward:
-		<span info="seq"> 
-			<script type="text/javascript"> document.write(primergen.forwardPrimer.sequence); </script>
-		</span>
-	</div>
-	<div>	Reverse:
-		<span info="seq"> 
-			<script type="text/javascript"> document.write(primergen.reversePrimer.sequence); </script>
-		</span>
-	</div>
-	<div>
 	The bases counts:
 	</div>
 	<div>	 
 		<span info="seq"> A = 
-			<script type="text/javascript"> document.write(primergen.sumA); </script>
+			<script type="text/javascript"> document.write(seqs.csaSeq.sumA); </script>
 		</span>
 	</div>
 	<div>	
 		<span info="seq"> T = 
-			<script type="text/javascript"> document.write(primergen.sumT); </script>
+			<script type="text/javascript"> document.write(seqs.csaSeq.sumT); </script>
 		</span>
 	</div>
 	<div>	 
 		<span info="seq"> G = 
-			<script type="text/javascript"> document.write(primergen.sumG); </script>
+			<script type="text/javascript"> document.write(seqs.csaSeq.sumG); </script>
 		</span>
 	</div>
 	<div>	
 		<span info="seq"> C = 
-			<script type="text/javascript"> document.write(primergen.sumC); </script>
+			<script type="text/javascript"> document.write(seqs.csaSeq.sumC); </script>
 		</span>
 	</div>
-	
+
+
+
+
+	<div> Here come the primers...</div>
+	<div>	Forward:
+		<span info="seq"> 
+			<script type="text/javascript"> document.write(seqs.forwardPrimer.sequence); </script>
+		</span>
+	</div>
+	<div>	Reverse:
+		<span info="seq"> 
+			<script type="text/javascript"> document.write(seqs.reversePrimer.sequence); </script>
+		</span>
+	</div>
+	<div>
+
+<h1> Forward Primer</h1>
+  <div>sequence:
+    <span info="seq"> 
+      <script type="text/javascript"> document.write(seqs.forwardPrimer.sequence); </script>
+    </span>
+  </div>
+    <div> integrity of the seq:
+    <span info="seq"> 
+      <script type="text/javascript"> document.write(seqs.forwardPrimer.integrity); </script>
+    </span>
+  </div>
+  <div> 
+    The PR Seq is 
+    <span info="seq">
+      <script type="text/javascript"> document.write(seqs.forwardPrimer.seqLength); </script>
+    </span>
+    bases long. 
+  </div>
+  <div> GC content of sequence:
+    <span info="seq"> 
+      <script type="text/javascript"> document.write(seqs.forwardPrimer.gcContent); </script>
+    </span>
+  </div>
+  The bases counts:
+  </div>
+  <div>  
+    <span info="seq"> A = 
+      <script type="text/javascript"> document.write(seqs.forwardPrimer.sumA); </script>
+    </span>
+  </div>
+  <div> 
+    <span info="seq"> T = 
+      <script type="text/javascript"> document.write(seqs.forwardPrimer.sumT); </script>
+    </span>
+  </div>
+  <div>  
+    <span info="seq"> G = 
+      <script type="text/javascript"> document.write(seqs.forwardPrimer.sumG); </script>
+    </span>
+  </div>
+  <div> 
+    <span info="seq"> C = 
+      <script type="text/javascript"> document.write(seqs.forwardPrimer.sumC); </script>
+    </span>
+  </div>
+
+
+<h1> Reverse Primer</h1>
+  <div> Here is the pseudorandom (PR) sequence:
+    <span info="seq"> 
+      <script type="text/javascript"> document.write(seqs.reversePrimer.sequence); </script>
+    </span>
+  </div>
+    <div> integrity of the sequence:
+    <span info="seq"> 
+      <script type="text/javascript"> document.write(seqs.reversePrimer.integrity); </script>
+    </span>
+  </div>
+  <div> 
+    The PR Seq is 
+    <span info="seq">
+      <script type="text/javascript"> document.write(seqs.reversePrimer.seqLength); </script>
+    </span>
+    bases long. 
+  </div>
+  <div> GC content of sequence:
+    <span info="seq"> 
+      <script type="text/javascript"> document.write(seqs.reversePrimer.gcContent); </script>
+    </span>
+  </div>
+  The bases counts:
+  </div>
+  <div>  
+    <span info="seq"> A = 
+      <script type="text/javascript"> document.write(seqs.reversePrimer.sumA); </script>
+    </span>
+  </div>
+  <div> 
+    <span info="seq"> T = 
+      <script type="text/javascript"> document.write(seqs.reversePrimer.sumT); </script>
+    </span>
+  </div>
+  <div>  
+    <span info="seq"> G = 
+      <script type="text/javascript"> document.write(seqs.reversePrimer.sumG); </script>
+    </span>
+  </div>
+  <div> 
+    <span info="seq"> C = 
+      <script type="text/javascript"> document.write(seqs.reversePrimer.sumC); </script>
+    </span>
+  </div>
 
 
 
