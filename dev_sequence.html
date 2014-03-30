@@ -42,7 +42,7 @@
 	</div>
 	<div> integrity of the primergen:
 		<span info="seq"> 
-			<script type="text/javascript"> document.write(primergen.seqIntegrityCheck); </script>
+			<script type="text/javascript"> document.write(primergen.seqIntegrityCheck(primergen.sequence)); </script>
 		</span>
 	</div>
 
@@ -76,6 +76,32 @@
 			<script type="text/javascript"> document.write(primergen.reversePrimer.sequence); </script>
 		</span>
 	</div>
+	<div>
+	The bases counts:
+	</div>
+	<div>	 
+		<span info="seq"> A = 
+			<script type="text/javascript"> document.write(primergen.sumA); </script>
+		</span>
+	</div>
+	<div>	
+		<span info="seq"> T = 
+			<script type="text/javascript"> document.write(primergen.sumT); </script>
+		</span>
+	</div>
+	<div>	 
+		<span info="seq"> G = 
+			<script type="text/javascript"> document.write(primergen.sumG); </script>
+		</span>
+	</div>
+	<div>	
+		<span info="seq"> C = 
+			<script type="text/javascript"> document.write(primergen.sumC); </script>
+		</span>
+	</div>
+	
+
+
 
 </body>
 </html>

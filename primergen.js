@@ -58,11 +58,16 @@ primergen.genComplement = function(f_seq) {
 //function that validates primergen integrity
 	//only A,G,T, and C bases => true
 	//bases other than A,G,T, or C => false
-primergen.seqIntegrityCheck = function (primergen) {
+primergen.seqIntegrityCheck = function (seq) {
 	var checker = 0;
-	checker = primergen.search(/[~ATGC]/);
-	if (checker === 0) {return true;}
-	else {return false;}
+	checker = seq.search(/[~ATGC]/);
+	if (checker === 0) {
+		return true;
+	}
+	else 
+		{
+			return false;
+		}
 };
 
 // finds GC content of primergen
@@ -71,8 +76,8 @@ primergen.seqIntegrityCheck = function (primergen) {
       //given "GATC" => 0.5
       //given "CCCC" => 1.0
       //given "AATC" => 0.25
-primergen.calcGCContent = function(seq) {
-  return 
+primergen.calcGCContent = function(seq, sumG, sumC) {
+  return (sumG + sumC) / seq.length
     };
 
 
@@ -120,15 +125,17 @@ var calcWallaceTemp = function(seq) {};
 seqLength = 64;
 // later, this will be user input via form field or accession number.
 primergen.sequence = primergen.genRandomSeq(seqLength);
+primergen.forwardPrimer = {};
 primergen.forwardPrimer.sequence = primergen.genPrimer(0, 18, true);
+primergen.reversePrimer = {};
 primergen.reversePrimer.sequence = primergen.genPrimer(0, 21, false);
-primergen.gcContent = primergen.calcGCContent(primergen.sequence);
-primergen.sumA = baseCount(primergen.sequence, "A");
-primergen.sumT = baseCount(primergen.sequence, "T");
-primergen.sumG = baseCount(primergen.sequence, "G");
-primergen.sumC = baseCount(primergen.sequence, "C");
 
 
+primergen.sumA = primergen.baseCount(primergen.sequence, "A");
+primergen.sumT = primergen.baseCount(primergen.sequence, "T");
+primergen.sumG = primergen.baseCount(primergen.sequence, "G");
+primergen.sumC = primergen.baseCount(primergen.sequence, "C");
+primergen.gcContent = primergen.calcGCContent(primergen.sequence, primergen.sumG, primergen.sumC);
 
 
 
