@@ -2,11 +2,11 @@
 var primergen = {};
 
 //it is necessary to determine which pole of the DNA...
-//primergen is to the left and which is to the right...
+//sequence is to the left and which is to the right...
 //the default is 5'-DNAHERE-3'.
 //if not oriented properly..
 // primers won't function for PCR
-/*" By convention, if the base primergen of a single strand of DNA is given,
+/*" By convention, if the base sequence of a single strand of DNA is given,
  the left end of the primergen is 5' end, while the right end of the
   primergen is the 3' end."
 AND
@@ -42,7 +42,7 @@ primergen.genRandomSeq = function(seqLength) {
 //	returned = "TAAAATCGCTAGGG"
 // f_seq is for "forward sequence"
 primergen.genComplement = function(f_seq) {
-	var compliment = "";
+	var complement = "";
 	var decoder = { 
 		"T": "A",
 		"A": "T",
@@ -50,9 +50,9 @@ primergen.genComplement = function(f_seq) {
 		"G": "C"
 	};
 	for (i = 0; i < f_seq.length; i++) {
-		compliment += decoder[f_seq[i]];
+		complement += decoder[f_seq[i]];
 	}
-	return compliment;
+	return complement;
 };
 
 //function that validates primergen integrity
@@ -75,18 +75,19 @@ primergen.calcGCContent = function(seq) {
   return 
     };
 
+
+
+
+//R is the ideal gas constant and is equal to 1.987 cal / (K * mole).
+//the difference between degrees Kelvin and Celsius is 273.15 degrees.
+
+
 //Calculate the melting temp of oligos (read: primers) in Celcius
-
-""" 
-R is the ideal gas constant and is equal to 1.987 cal / (K * mole).
-the difference between degrees Kelvin and Celsius is 273.15 degrees.
-
-"""
 primergen.calcMeltingTempCelsius = function() {
 	var R = 1.987;
-	meltingTemp = 	enthalpy / (entropy + idealGasConst * log(concentration_Primers)) -273.15;
-invMonovalentTemp = ();
-invDivalentTemp = ();
+	var meltingTemp = enthalpy / (entropy + idealGasConst * log(concentration_Primers)) -273.15;
+//invMonovalentTemp = ();
+//invDivalentTemp = ();
 };
 
 
@@ -99,7 +100,7 @@ primergen.baseCount = function(seq, nucleotide) {
 
 
 
-var calcWallaceTemp = function(seq) {
+var calcWallaceTemp = function(seq) {};
 
 
 
@@ -122,10 +123,10 @@ primergen.sequence = primergen.genRandomSeq(seqLength);
 primergen.forwardPrimer.sequence = primergen.genPrimer(0, 18, true);
 primergen.reversePrimer.sequence = primergen.genPrimer(0, 21, false);
 primergen.gcContent = primergen.calcGCContent(primergen.sequence);
-primergen.sumA = baseCount(primergen.sequence, "A")
-primergen.sumT = baseCount(primergen.sequence, "T")
-primergen.sumG = baseCount(primergen.sequence, "G")
-primergen.sumC = baseCount(primergen.sequence, "C")
+primergen.sumA = baseCount(primergen.sequence, "A");
+primergen.sumT = baseCount(primergen.sequence, "T");
+primergen.sumG = baseCount(primergen.sequence, "G");
+primergen.sumC = baseCount(primergen.sequence, "C");
 
 
 

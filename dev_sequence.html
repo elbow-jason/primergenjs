@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<title>primergenjs - primer design made easy</title>
 	<link rel="shortcut icon" href="./primergenjs.ico" type="image/ico">
-	<script type="text/javascript" src="./sequence.js"></script>
+	<script type="text/javascript" src="./primergen.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="http://davidbau.com/encode/seedrandom.min.js"></script>
 	<style>
@@ -22,31 +22,37 @@
 <body>
 
 	
-	<p> From ./sequence.js </p>
-	<div> Here is the pseudorandom (PR) sequence:
+	<p> From ./primergen.js </p>
+	<div> Here is the pseudorandom (PR) primergen:
 		<span info="seq"> 
-			<script type="text/javascript"> document.write(sequence.actual); </script>
+			<script type="text/javascript"> document.write(primergen.sequence); </script>
 		</span>
 	</div>
 	<div> 
 		The PR Seq is 
 		<span info="seq">
-			<script type="text/javascript"> document.write(sequence.actual.length); </script>
+			<script type="text/javascript"> document.write(primergen.sequence.length); </script>
 		</span>
 		bases long. 
 	</div>
-<div> GC content of sequence:
+	<div> GC content of primergen:
 		<span info="seq"> 
-			<script type="text/javascript"> document.write(sequence.gcContent); </script>
+			<script type="text/javascript"> document.write(primergen.gcContent); </script>
 		</span>
 	</div>
+	<div> integrity of the primergen:
+		<span info="seq"> 
+			<script type="text/javascript"> document.write(primergen.seqIntegrityCheck); </script>
+		</span>
+	</div>
+
 
 
 
 
 	<TABLE>
 		<TR>
-			<TD>Sequence</TD>
+			<TD>primergen</TD>
 			<TD info="seq">ATTTTAGCGATCCC</TD>
 
 		</TR>
@@ -56,18 +62,18 @@
 		</TR>
 		<TR>
 			<TD>Generated</TD>
-			<TD info="seq"><script type="text/javascript"> document.write(sequence.genComplement("ATTTTAGCGATCCC")); </script></TD>
+			<TD info="seq"><script type="text/javascript"> document.write(primergen.genComplement("ATTTTAGCGATCCC")); </script></TD>
 		</TR>
 	</TABLE>
 	<div> Here come the primers...</div>
 	<div>	Forward:
 		<span info="seq"> 
-			<script type="text/javascript"> document.write(sequence.forwardPrimer); </script>
+			<script type="text/javascript"> document.write(primergen.forwardPrimer.sequence); </script>
 		</span>
 	</div>
 	<div>	Reverse:
 		<span info="seq"> 
-			<script type="text/javascript"> document.write(sequence.reversePrimer); </script>
+			<script type="text/javascript"> document.write(primergen.reversePrimer.sequence); </script>
 		</span>
 	</div>
 
