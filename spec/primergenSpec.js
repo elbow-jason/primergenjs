@@ -17,6 +17,24 @@ describe("Sequence.seqIntegrityCheck", function() {
 
 
 
+//.baseCount
+describe("Sequence.baseCount", function() {
+  var sequence;
+
+  beforeEach(function() {
+    sequence = new $pg.Sequence('AAAGGGGCCCCCTTTTTT', true);
+  });
+
+  it("returns the number of given bases in a given sequence", function() {
+    expect(sequence.baseCount(sequence.sequence, 'A')).toBe(3);
+    expect(sequence.baseCount(sequence.sequence, 'G')).toBe(4);
+    expect(sequence.baseCount(sequence.sequence, 'C')).toBe(5);
+    expect(sequence.baseCount(sequence.sequence, 'T')).toBe(6);
+    expect(sequence.baseCount(sequence.sequence, 'E')).toBe(0);
+  });
+});
+
+
   //returns the complement of the param 'this' as this is presented. i.e. 
   //  passed in = "ATTTTAGCGATCCC"
   //  returned =  "TAAAATCGCTAGGG"
