@@ -1,2 +1,6 @@
 add options:
 	- Long range PCR option for looonng sequences (longer than 3000bp)
+
+add jasmine code coverage:
+	- http://ariya.ofilabs.com/2013/10/code-coverage-of-jasmine-tests-using-istanbul-and-karma.html
+
