@@ -1,3 +1,5 @@
+//$pg.Sequence function tests follow
+
 describe("Sequence.seqIntegrityCheck", function() {
   var sequence;
 
@@ -35,6 +37,34 @@ describe("Sequence.baseCount", function() {
 });
 
 
+  // finds GC content of this
+  //should return a number between 0 and 1.
+  // e.g. given "GGCC" => 1.0
+        //given "GATC" => 0.5
+        //given "CCCC" => 1.0
+        //given "AATC" => 0.25
+  
+  describe("Sequence.calcGCContent", function() {
+  var sequence;
+
+  it("returns the number of given bases in a given sequence", function() {
+    sequence = new $pg.Sequence('GGCC', true);
+    expect(sequence.calcGCContent(sequence.sequence, sequence.sumG, sequence.sumC)).toBe(1.0);
+    sequence = new $pg.Sequence('GATC', true);
+    expect(sequence.calcGCContent(sequence.sequence, sequence.sumG, sequence.sumC)).toBe(0.5);
+    sequence = new $pg.Sequence('CCCC', true);
+    expect(sequence.calcGCContent(sequence.sequence, sequence.sumG, sequence.sumC)).toBe(1.0);
+    sequence = new $pg.Sequence('AATC', true);
+    expect(sequence.calcGCContent(sequence.sequence, sequence.sumG, sequence.sumC)).toBe(0.25);
+    sequence = new $pg.Sequence('AATT', true);
+    expect(sequence.calcGCContent(sequence.sequence, sequence.sumG, sequence.sumC)).toBe(0.0);
+
+  });
+});
+
+
+
+//$pg helpers/library follows
   //returns the complement of the param 'this' as this is presented. i.e. 
   //  passed in = "ATTTTAGCGATCCC"
   //  returned =  "TAAAATCGCTAGGG"
