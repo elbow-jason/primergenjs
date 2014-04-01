@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<title>primergenjs - primer design made easy</title>
 	<link rel="shortcut icon" href="./primergen.ico" type="image/ico">
-	<script type="text/javascript" src="./primergen.js"></script>
+	<script type="text/javascript" src="./lib/primergen.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="http://davidbau.com/encode/seedrandom.min.js"></script>
 	<style>
@@ -20,8 +20,8 @@
 
 	
 	<p><big> From ./primergen.js </big> </p>
-	<h1> Candidate Sequence</h1>
-	<div> Here is the pseudorandom (PR) sequence:
+	<h1><script type="text/javascript"> document.write(seqs.csaSeq.seqName); </script></h1>
+	sequence:
 		<span info="seq"> 
 			<script type="text/javascript"> document.write(seqs.csaSeq.sequence); </script>
 		</span>
@@ -32,11 +32,10 @@
 		</span>
 	</div>
 	<div> 
-		The PR Seq is 
+		The sequence length:
 		<span info="seq">
 			<script type="text/javascript"> document.write(seqs.csaSeq.seqLength); </script>
 		</span>
-		bases long. 
 	</div>
 	<div> GC content of sequence:
 		<span info="seq"> 
@@ -67,23 +66,9 @@
 	</div>
 
 
-
-
-	<div> Here come the primers...</div>
-	<div>	Forward:
-		<span info="seq"> 
-			<script type="text/javascript"> document.write(seqs.forwardPrimer.sequence); </script>
-		</span>
-	</div>
-	<div>	Reverse:
-		<span info="seq"> 
-			<script type="text/javascript"> document.write(seqs.reversePrimer.sequence); </script>
-		</span>
-	</div>
-	<div>
-
-<h1> Forward Primer</h1>
-  <div>sequence:
+<h1><script type="text/javascript"> document.write(seqs.forwardPrimer.seqName); </script></h1>
+  <div>
+    sequence: 
     <span info="seq"> 
       <script type="text/javascript"> document.write(seqs.forwardPrimer.sequence); </script>
     </span>
@@ -94,11 +79,10 @@
     </span>
   </div>
   <div> 
-    The PR Seq is 
+    The seqence length is:
     <span info="seq">
       <script type="text/javascript"> document.write(seqs.forwardPrimer.seqLength); </script>
     </span>
-    bases long. 
   </div>
   <div> GC content of sequence:
     <span info="seq"> 
@@ -129,8 +113,9 @@
   </div>
 
 
-<h1> Reverse Primer</h1>
-  <div> Here is the pseudorandom (PR) sequence:
+<h1><script type="text/javascript"> document.write(seqs.reversePrimer.seqName); </script></h1>
+  <div>
+    sequence: 
     <span info="seq"> 
       <script type="text/javascript"> document.write(seqs.reversePrimer.sequence); </script>
     </span>
@@ -141,11 +126,10 @@
     </span>
   </div>
   <div> 
-    The PR Seq is 
+    The sequence length:
     <span info="seq">
       <script type="text/javascript"> document.write(seqs.reversePrimer.seqLength); </script>
     </span>
-    bases long. 
   </div>
   <div> GC content of sequence:
     <span info="seq"> 
