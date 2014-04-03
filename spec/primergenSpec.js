@@ -117,3 +117,13 @@ describe(".genRandomSeq", function() {
     expect($pg.genRandomSeq(10).length).toBe(10);
   });
 });
+
+
+
+describe(".getNNPairs", function() {
+
+it("returns an array of pairs of bases found in a given sequence", function() {
+    expect($pg.getNNPairs('ATGC')).toEqual(['AT','TG','GC']);
+    expect($pg.getNNPairs('A')).toBe(false);
+  });
+});
