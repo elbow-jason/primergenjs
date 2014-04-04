@@ -44,25 +44,31 @@ describe("Sequence.baseCount", function() {
         //given "CCCC" => 1.0
         //given "AATC" => 0.25
   
-  describe("Sequence.calcGCContent", function() {
-  var sequence;
+describe("Sequence.calcGCContent", function() {
+var sequence;
 
-  it("returns the number of given bases in a given sequence", function() {
-    sequence = new $pg.Sequence('GGCC', true);
-    expect(sequence.calcGCContent(sequence.sequence, sequence.sumG, sequence.sumC)).toBe(1.0);
-    sequence = new $pg.Sequence('GATC', true);
-    expect(sequence.calcGCContent(sequence.sequence, sequence.sumG, sequence.sumC)).toBe(0.5);
-    sequence = new $pg.Sequence('CCCC', true);
-    expect(sequence.calcGCContent(sequence.sequence, sequence.sumG, sequence.sumC)).toBe(1.0);
-    sequence = new $pg.Sequence('AATC', true);
-    expect(sequence.calcGCContent(sequence.sequence, sequence.sumG, sequence.sumC)).toBe(0.25);
-    sequence = new $pg.Sequence('AATT', true);
-    expect(sequence.calcGCContent(sequence.sequence, sequence.sumG, sequence.sumC)).toBe(0.0);
+it("returns the number of given bases in a given sequence", function() {
+  sequence = new $pg.Sequence('GGCC', true);
+  expect(sequence.calcGCContent(sequence.sequence, sequence.sumG, sequence.sumC)).toBe(1.0);
+  sequence = new $pg.Sequence('GATC', true);
+  expect(sequence.calcGCContent(sequence.sequence, sequence.sumG, sequence.sumC)).toBe(0.5);
+  sequence = new $pg.Sequence('CCCC', true);
+  expect(sequence.calcGCContent(sequence.sequence, sequence.sumG, sequence.sumC)).toBe(1.0);
+  sequence = new $pg.Sequence('AATC', true);
+  expect(sequence.calcGCContent(sequence.sequence, sequence.sumG, sequence.sumC)).toBe(0.25);
+  sequence = new $pg.Sequence('AATT', true);
+  expect(sequence.calcGCContent(sequence.sequence, sequence.sumG, sequence.sumC)).toBe(0.0);
 
   });
 });
 
+describe(".getNNPairs", function() {
 
+it("returns an carray of pairs of bases found in a given sequence", function() {
+    expect($pg.getNNPairs('ATGC')).toEqual(['AT','TG','GC']);
+    expect($pg.getNNPairs('A')).toBe(false);
+  });
+});
 
 //$pg helpers/library follows
   //returns the complement of the param 'this' as this is presented. i.e. 
@@ -120,10 +126,3 @@ describe(".genRandomSeq", function() {
 
 
 
-describe(".getNNPairs", function() {
-
-it("returns an array of pairs of bases found in a given sequence", function() {
-    expect($pg.getNNPairs('ATGC')).toEqual(['AT','TG','GC']);
-    expect($pg.getNNPairs('A')).toBe(false);
-  });
-});
