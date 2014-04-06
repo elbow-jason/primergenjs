@@ -64,7 +64,7 @@ it("returns the number of given bases in a given sequence", function() {
 
 describe(".getNNPairs", function() {
 
-it("returns an carray of pairs of bases found in a given sequence", function() {
+it("returns an array of pairs of bases found in a given sequence", function() {
     expect($pg.getNNPairs('ATGC')).toEqual(['AT','TG','GC']);
     expect($pg.getNNPairs('A')).toBe(false);
   });
