@@ -1,3 +1,5 @@
 add options:
-	- Long range PCR option for looonng sequences (longer than 3000bp)
-
+  + Long range PCR option for looonng sequences (longer than 3000bp)
+  + add jsonification of primer chemistry
+  + add D3 drawing of primergen jsons
+  + add angular for interactivity
